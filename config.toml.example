@@ -1,0 +1,9 @@
+[excel]
+# 読み込む Excel ファイルのパス
+# Windows パスはバックスラッシュ(\)ではなくスラッシュ(/)を使うか、シングルクォートで囲んでください。
+# 例: "C:/Users/you/Documents/progress.xlsx"
+# 例: 'C:\Users\you\Documents\progress.xlsx'
+file_path = "C:/path/to/your/progress.xlsx"
+
+# 読み込むシート名（デフォルト: 進捗一覧）
+sheet_name = "進捗一覧"

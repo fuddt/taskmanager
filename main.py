@@ -283,11 +283,18 @@ def build_altair_gantt(df: pd.DataFrame):
         .encode(x="date:T")
     )
 
+    # 各タスク行の横区切り線
+    row_rules = (
+        alt.Chart(chart_df)
+        .mark_rule(color="#cccccc", strokeWidth=0.5, opacity=0.7)
+        .encode(y=alt.Y("表示名_遅延反映:N", sort=y_order))
+    )
+
     # 今日の縦線
     today_df = pd.DataFrame({"today": [pd.Timestamp.today().normalize()]})
     today_rule = alt.Chart(today_df).mark_rule(strokeDash=[6, 4], size=2).encode(x="today:T")
 
-    chart = (day_grid + bars + today_rule).properties(
+    chart = (day_grid + row_rules + bars + today_rule).properties(
         height=max(400, len(chart_df) * 34),
         title="進捗ガントチャート",
     )

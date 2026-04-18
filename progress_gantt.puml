@@ -1,0 +1,28 @@
+@startgantt
+
+title Progress Gantt
+Project starts 2026-01-01
+saturday are closed
+sunday are closed
+
+' ========================================
+' 機能: main
+' ========================================
+' ID=1 / 機能=main / 区分=要件定義 / 担当=自分 / 進捗率=0 / 状態=進行中 / 優先度=中 / 遅延==IF(AND(H7<TODAY(),J7<>"完了",H7<>""),"遅延","")
+[A_ID_1] starts 2026-01-01
+[A_ID_1] ends 2026-01-30
+[A_ID_1] starts after [A_ID_1]'s end
+
+' ID=2 / 機能=main / 区分=設計 / 担当=自分 / 進捗率=1 / 状態=完了 / 優先度=中 / 遅延==IF(AND(H8<TODAY(),J8<>"完了",H8<>""),"遅延","")
+[A_ID_2] starts 2026-01-01
+[A_ID_2] ends 2026-01-30
+[A_ID_2] starts after [A_ID_1]'s end
+
+' ========================================
+' 機能: sub
+' ========================================
+' ID=3 / 機能=sub / 区分=実装 / 担当=部下A / 進捗率=0 / 状態=進行中 / 優先度=中 / 遅延==IF(AND(H9<TODAY(),J9<>"完了",H9<>""),"遅延","")
+[B_ID_3] happens 2026-01-30
+[B_ID_3] starts after [A_ID_2]'s end
+
+@endgantt
